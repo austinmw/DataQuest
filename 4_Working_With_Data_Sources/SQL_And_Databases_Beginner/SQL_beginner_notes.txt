@@ -1,0 +1,45 @@
+Code used in script.sql file on jobs.db file:
+
+
+SELECT Major
+FROM recent_grads
+WHERE Employed > 10000
+LIMIT 10;
+
+
+SELECT Major,Median,Unemployed
+FROM recent_grads
+WHERE Median >= 10000 OR Unemployed <= 1000
+LIMIT 20;
+
+
+select Major, Major_category, ShareWomen, Unemployment_rate
+from recent_grads
+where (Major_category = 'Engineering') and (ShareWomen > 0.5 or Unemployment_rate < 0.051);
+
+
+SELECT Major, Major_category, Employed, Unemployment_rate
+FROM recent_grads
+WHERE (Major_category='Business' OR Major_category='Arts' OR Major_category='Health')
+AND (Employed > 20000 OR Unemployment_rate < 0.051);
+
+
+select Major
+from recent_grads
+order by Major desc
+limit 10;
+
+
+select Major_category, Median, Major
+from recent_grads
+order by Major asc, Median desc
+limit 20;
+
+
+select Major
+from recent_grads
+where Major_category != "Engineering"
+order by Major desc
+limit 20;
+
+
